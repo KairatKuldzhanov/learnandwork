@@ -1,0 +1,6 @@
+$1 = gci c:\Logs\* -include *.txt,*.log |
+select -expand basename | sort -unique 
+$2=Write-Output $1.Count
+While ($2=3) {
+move-item C:\Logs\*.log C:\Arhiv
+}
